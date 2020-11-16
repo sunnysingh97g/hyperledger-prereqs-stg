@@ -46,11 +46,11 @@ wget https://golang.org/dl/go1.14.4.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.14.4.linux-amd64.tar.gz
 mkdir -p go/{src/github.com/sunnysingh07g,bin,pkg}
 cat <<EOF >> ./.bash_profile
-  export GOPATH=/home/shishirsingh66/go
-  export GOPATHBIN=$GOPATH/bin
-  export GOROOT=/usr/local/go
-  export GOBIN=$GOROOT/bin
-  export PATH=$PATH:$GOBIN:$GOPATHBIN
+export GOPATH=$HOME/go
+export GOPATHBIN=$GOPATH/bin
+export GOROOT=/usr/local/go
+export GOBIN=$GOROOT/bin
+export PATH=$PATH:$GOROOT:$GOBIN:$GOPATH:$GOPATHBIN
 EOF
 mkdir -p ~/go/src/github.com/sunnysingh97gi && mkdir -p ~/go/bin && mkdir -p ~/go/pkg
 source ./.bash_profile
@@ -97,7 +97,7 @@ sudo modprobe br_netfilter
 #TCP	Inbound	10250	Kubelet API	Self, Control plane
 #TCP	Inbound	30000-32767	NodePort Services†	All
 #sudo cat /sys/class/dmi/id/product_uuid
-#sudo kubeadm init —pod-network-cidr=10.240.0.0/16
+#sudo kubeadm init --pod-network-cidr=10.240.0.0/16
 #mkdir -p $HOME/.kube
 #sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 #sudo chown $(id -u):$(id -g) $HOME/.kube/config
